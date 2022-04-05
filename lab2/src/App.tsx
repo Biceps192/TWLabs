@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {set} from "mobx";
+import Counter from "./components/Counter";
 
 function App() {
+    const [value, setvalue] = useState('Хеллоу')
+
+
+
   return (
     <div className="App">
-          <h1>
-            Danilov Vladislav RM-192
-          </h1>
+        <Counter/>
+        <Counter/>
+        <Counter/>
+        <Counter/>
     </div>
   );
 }
