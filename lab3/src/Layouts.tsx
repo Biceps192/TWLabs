@@ -1,6 +1,14 @@
-import { Layout, Menu, Breadcrumb, Card } from 'antd';
+import {Layout, Menu, Breadcrumb, Card, Button} from 'antd';
 import { CustomForm } from './components/CustomForm';
 import { IUser } from './components/interfaces';
+import {Link} from "react-router-dom";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+} from "react-router-dom";
+import UserList from "./components/UserList";
+import UserPage from "./components/UserPage";
 
 const { Header, Content, Footer } = Layout;
 
@@ -24,27 +32,22 @@ export const HeaderLayout = () => {
   );
 };
 
-const user: IUser = {
-  id: '1',
-  nickname: 'jake',
-  password: 'pass',
-  email: 'email@list.ru',
-  phone: '+3732456732',
-  comment: 'yeah boy',
-  gender: 'Len',
-  adress: 'micurina 19/71 ap.72'
-};
+
 
 export const MainLayout = () => {
-  console.log(user);
   return (
     <Content style={{ padding: '0 50px' }}>
       <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
+          <Link to={'/home'}><Breadcrumb.Item>Home</Breadcrumb.Item></Link>
+          <Link to={'/'}><Breadcrumb.Item>App</Breadcrumb.Item></Link>
       </Breadcrumb>
       <Card bordered={false}>
-        <CustomForm />
+              <Routes>
+                  <Route path="/" element={<CustomForm />} />
+                  {/*<Route path="/home" element={<UserList />}><Route path =":id" element={<UserPage />}></Route></Route>*/}
+                  <Route path="/home" element={<UserList />}></Route>
+                  <Route path ="/home/:id" element={<UserPage />}></Route>
+              </Routes>
       </Card>
     </Content>
   );
