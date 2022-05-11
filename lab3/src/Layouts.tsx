@@ -54,7 +54,7 @@ export const FooterLayout = () => {
   return (
     <Footer style={{ textAlign: 'center', position: 'absolute', bottom: '0', width: '100%' }}>
       This app, created by
-      <a href="https://github.com/Biceps192/TWLabs.git">Danilov Vladislav</a>
+      <a href="https://github.com/Biceps192/TWLabs.git"> Danilov Vladislav</a>
     </Footer>
   );
 };
